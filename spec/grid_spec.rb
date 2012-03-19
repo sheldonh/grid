@@ -6,10 +6,8 @@ class ExpandingGrid
 
   def initialize(options = {})
     @options = options.frozen? ? options : options.dup.freeze
-    @fringe = options[:fringe] || 0
-    @top, @left, @bottom, @right = 0, 0, 0, 0
+    @top, @left, @bottom, @right, @fringe, @default = 0, 0, 0, 0, options[:fringe].to_i, options[:default]
     @grid = {}
-    @default = options[:default]
     fit(0, 0)
   end
 
